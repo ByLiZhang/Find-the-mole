@@ -1,0 +1,11 @@
+
+.field{
+    width: 80vmin;
+    height: 80vmin;
+}
+
+.pile{
+    background-image: url("pile.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
