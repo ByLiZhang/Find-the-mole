@@ -6,17 +6,27 @@ $(document).ready(initApp);
  *
  */
 function initApp(){
-    renderMoleAndPiles(10);
+    renderMoleAndPiles(9);
 }
 
-renderMoleAndPiles(numOfElements){
+function renderMoleAndPiles(numOfElements){
 
     var field = $('.field');
-    for(var i = 0; i < numOfElements.length; i++){
-        var pile = $('<div>',{
-            class: 'pile'
+    for(var i = 0; i < numOfElements; i++){
+        var container = $('<div>',{            
+            class: 'container'
         });
-        field.append(pile);
+        var dirt = $('<img>',{
+            src:"asset/dirt.png",
+            class: 'dirt'
+        });
+        var mole = $('<img>',{
+            src:"asset/mole.jpg",
+            class: 'mole'
+        });
+        container.append(mole);
+        container.append(dirt);
+        field.append(container);
     }
 
 }

@@ -1,11 +1,31 @@
 
 .field{
-    width: 80vmin;
-    height: 80vmin;
+    width: 100vmin;
+    height: 100vmin;
+    margin: auto;
 }
 
-.pile{
-    background-image: url("pile.png");
-    background-position: center;
-    background-repeat: no-repeat;
+.container{
+    position: relative;
+    display: inline-block;
+    width: 33%;
+    height: 33%;
+}
+
+.dirt{
+    width: 100%;
+   
+}
+
+.mole{
+    width: 50%; 
+}
+
+.mole, .dirt{
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+   
 }
