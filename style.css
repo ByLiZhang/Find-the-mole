@@ -1,8 +1,28 @@
 
 .field{
+    display: inline-block;
     width: 100vmin;
     height: 100vmin;
-    margin: auto;
+    margin-left: 10%;
+}
+
+.stats{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    height: 100vmin;
+    width: 20%;
+    font-size: 4vmin;
+}
+
+.stats p{
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    transform: translate(0,-50%);
+    border: 2px solid maroon;
+    border-radius: 25px;
+    padding: 5%;    
 }
 
 .container{
