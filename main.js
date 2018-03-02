@@ -3,6 +3,7 @@
 $(document).ready(initApp);
 
 var hitAllowed=false;
+var numRandom=-1;
 /**
  *
  */
@@ -14,7 +15,7 @@ function initApp(){
         moveTheMole(numOfElements);
     },3000);    
 
-    $('.field').on('click', '.container', whack);
+    $('.field').on('click', '.mole', whack);
 
 }
 
@@ -42,7 +43,7 @@ function renderMoleAndPiles(numOfElements){
 
 function moveTheMole(numOfElements){
     hitAllowed=true;
-    var numRandom = Math.floor(Math.random() * numOfElements);
+    numRandom = Math.floor(Math.random() * numOfElements);
 
     var moleToHit = $('#'+numRandom);
 
@@ -61,7 +62,10 @@ function moveTheMole(numOfElements){
 }
 
 function whack() {
-    if(hitAllowed){
+    var id = $(this).attr('id');
+    console.log('id: ' + id+ ' numRandom: '+ numRandom + ' hitAllowed:' + hitAllowed)
+    if(hitAllowed && id == numRandom){
+        hitAllowed=false;
         console.log('clicked');
         var points = $('#points').text();
         points = parseInt(points);
