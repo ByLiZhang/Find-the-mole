@@ -6,7 +6,11 @@ $(document).ready(initApp);
  *
  */
 function initApp(){
-    renderMoleAndPiles(9);
+    var numOfElements = 9;
+    renderMoleAndPiles(numOfElements);
+    setInterval(function(){
+        moveTheMole(numOfElements);
+    },3000);    
 }
 
 function renderMoleAndPiles(numOfElements){
@@ -21,13 +25,31 @@ function renderMoleAndPiles(numOfElements){
             class: 'dirt'
         });
         var mole = $('<img>',{
-            src:"asset/mole.jpg",
-            class: 'mole'
+            src:"asset/mole.png",
+            class: 'mole',
+            id: i
         });
         container.append(mole);
         container.append(dirt);
         field.append(container);
     }
+}
+
+function moveTheMole(numOfElements){
+    var numRandom = Math.floor(Math.random() * numOfElements);
+
+    var moleToHit = $('#'+numRandom);
+
+    moleToHit.animate({
+        top: '25%'
+    }, 1000);
+
+    setTimeout(function(){
+        moleToHit.animate({
+            top: '50%'
+        }, 1000);
+    },1200);
+    
 
 }
 
