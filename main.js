@@ -2,15 +2,20 @@
 /***********************************************************************************/
 $(document).ready(initApp);
 
+var hitAllowed=false;
 /**
  *
  */
 function initApp(){
+
     var numOfElements = 9;
     renderMoleAndPiles(numOfElements);
     setInterval(function(){
         moveTheMole(numOfElements);
     },3000);    
+
+    $('.field').on('click', '.container', whack);
+
 }
 
 function renderMoleAndPiles(numOfElements){
@@ -36,6 +41,7 @@ function renderMoleAndPiles(numOfElements){
 }
 
 function moveTheMole(numOfElements){
+    hitAllowed=true;
     var numRandom = Math.floor(Math.random() * numOfElements);
 
     var moleToHit = $('#'+numRandom);
@@ -48,8 +54,27 @@ function moveTheMole(numOfElements){
         moleToHit.animate({
             top: '50%'
         }, 1000);
+        hitAllowed=false;
     },1200);
     
 
 }
 
+function whack() {
+    if(hitAllowed){
+        console.log('clicked');
+        var points = $('#points').text();
+        points = parseInt(points);
+        points++;
+        $('#points').text(points);
+        //add some action() here;
+        sounds.whack.play();
+    }
+    
+}
+
+var sounds = {
+    whack: new Howl({
+        src: ['asset/panHit.mp3']
+    })
+}
