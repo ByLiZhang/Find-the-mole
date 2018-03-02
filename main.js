@@ -48,15 +48,15 @@ function moveTheMole(numOfElements){
     var moleToHit = $('#'+numRandom);
 
     moleToHit.animate({
-        top: '25%'
+        top: '22%'
     }, 1000);
 
     setTimeout(function(){
         moleToHit.animate({
-            top: '50%'
+            top: '45%'
         }, 1000);
         hitAllowed=false;
-    },1200);
+    },1500);
     
 
 }
