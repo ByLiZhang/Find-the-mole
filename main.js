@@ -7,6 +7,7 @@ $(document).ready(initApp);
  */
 function initApp(){
     renderMoleAndPiles(9);
+    $('.field').on('click', '.container', whack);
 }
 
 function renderMoleAndPiles(numOfElements){
@@ -31,3 +32,15 @@ function renderMoleAndPiles(numOfElements){
 
 }
 
+function whack() {
+    console.log('clicked');
+    //add some action() here;
+    sounds.whack.play();
+    
+}
+
+var sounds = {
+    whack: new Howl({
+        src: ['asset/panHit.mp3']
+    })
+}
